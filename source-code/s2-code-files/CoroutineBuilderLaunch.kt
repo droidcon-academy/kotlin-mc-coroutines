@@ -1,9 +1,12 @@
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun main() {
     GlobalScope.launch {
-        println("Coroutine with launch")
+        // Cooking something in the background
+        delay(2000)
+        println("Pizza is ready!")
     }
-    Thread.sleep(1000L)
+    println("The chef is still chopping vegetables.")
 }

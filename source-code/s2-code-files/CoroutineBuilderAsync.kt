@@ -1,10 +1,13 @@
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
-fun main() {
-    GlobalScope.async {
-        println("Coroutine with async")
-        42
+fun main() = runBlocking{
+    val pasta = GlobalScope.async {
+        delay(1000)  // Simulate cooking pasta
+        "Pasta is ready!"
     }
-    Thread.sleep(1000L)
+    println("Chef is chopping veggies.")
+    println(pasta.await())  // Waiting for the pasta to be ready
 }
